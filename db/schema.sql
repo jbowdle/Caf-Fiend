@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS caffeine_db;
+CREATE DATABASE caffeine_db;
