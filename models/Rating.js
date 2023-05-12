@@ -19,6 +19,10 @@ Rating.init(
                 max: 5
             }
         },
+        review: {
+            type: DataTypes.STRING,
+            allowNull: true //optional
+        },
         user_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
