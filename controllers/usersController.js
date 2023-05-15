@@ -1,26 +1,27 @@
-const router = require('express').Router();
-const { User } = require('../models');
-const withAuth = require('../utils/withAuth');
+const db = require('../models');
 
-router.get('/', async (req, res) => {
-  // This render the homepage
-  res.render('homepage');
-});
+module.exports = {
+  renderSignup: (req, res) => {
+    res.render('signup');
+  },
 
-router.get('/login', (req, res) => {
-  // This render the login page
-  res.render('login');
-});
+  renderLogin: (req, res) => {
+    if (req.session.logged_in) {
+      res.redirect('/beverages');
+      return;
+    }
+    res.render('login');
+  },
 
-router.get('/signup', (req, res) => {
-  // Render the signup page
-  res.render('signup');
-});
-
-router.get('/dashboard', withAuth, async (req, res) => {
-  // Render the user's dashboard, protected by authentication middleware
-  const userData = await User.findOne({ where: { id: req.session.user_id } });
-  res.render('dashboard', { user: userData });
-});
-
-module.exports = router;
+  renderProfile: async (req, res) => {
+    try {
+      const userData = await db.User.findByPk(req.session.user_id, {
+        attributes: { exclude: ['password'] },
+      });
+      const user = userData.get({ plain: true });
+      res.render('profile', { user });
+    } catch (error) {
+      res.status(500).json(error);
+    }
+  },
+};
