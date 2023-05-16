@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Dashboard - Caf-fiend</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+  <header>
+    <h1>Caf-fiend</h1>
+  </header>
+
+  <main>
+    <section class="user-dashboard">
+      <h2>Welcome, {{user.name}}</h2>
+
+      <h3>Your Drinks</h3>
+      <ul class="drink-list">
+        {{#each drinks}}
+        <li>
+          <h4>{{beverage}}</h4>
+          <p>Type: {{bev_type}}</p>
+          <a href="/edit-beverage/{{id}}">Edit</a>
+        </li>
+        {{/each}}
+      </ul>
+      <a href="/add-beverage">Add a new beverage</a>
+      
+      <h3>Your Ratings</h3>
+      <ul class="rating-list">
+        {{#each ratings}}
+        <li>
+          <h4>{{drink.beverage}}</h4>
+          <p>Rating: {{rating}}</p>
+          <p>Review: {{review}}</p>
+        </li>
+        {{/each}}
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; Caf-fiend. All rights reserved.</p>
+  </footer>
+</body>
+
+</html>
