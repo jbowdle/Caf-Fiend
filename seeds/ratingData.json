@@ -1,0 +1,14 @@
+[
+    {
+        "rating": "3",
+        "review": null,
+        "user_id": "3",
+        "drink_id": "1"
+    },
+    {
+        "rating": "5",
+        "review": "I wish it had banana too, but it tastes great!",
+        "user_id": "4",
+        "drink_id": "4"
+    }
+]
