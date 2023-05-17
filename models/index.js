@@ -25,7 +25,7 @@ UserDrink.belongsTo(Drink, {
 
 User.hasMany(Rating, {
     foreignKey: 'user_id',
-    onDelete: 'CASCADE'
+    onDelete: 'SET NULL'
 });
 
 Rating.belongsTo(User, {
