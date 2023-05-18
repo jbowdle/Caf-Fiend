@@ -33,8 +33,18 @@ router.get('/dashboard/', withAuth, async (req, res) => {
     try {
         const userDrinkData = await User.findOne({
             where: { id: req.session.user_id },
-            include: [{ model: Drink }, { model: Rating }]
+            include: [
+                { 
+                    model: Drink,
+                    include: [
+                        {
+                            model: Rating,
+                            attributes: ['id', 'rating']
+                        }
+                    ] 
+                }]
         });
+        console.log(userDrinkData);
         const user = userDrinkData.get({ plain: true });
 
         res.render('user-dashboard', { user, logged_in: req.session.logged_in, user_id: req.session.user_id })
