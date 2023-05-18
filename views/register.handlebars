@@ -1,40 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Register - Caf-fiend</title>
-  <link rel="stylesheet" href="/css/styles.css">
-</head>
-  <main>
-    <section class="register-form">
-      <h2>Register</h2>
-      <form id="register-form" action="/api/users/register" method="POST">
-        <div>
-          <label for="name">Name:</label>
-          <input type="text" id="name" name="name" required>
-        </div>
-        <div>
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required>
-        </div>
-        <div>
-          <label for="password">Password:</label>
-          <input type="password" id="password" name="password" minlength="8" required>
-        </div>
-        <div>
-          <button type="submit">Register</button>
-        </div>
-      </form>
-    </section>
-  </main>
-
-  <footer>
-    <p>&copy; Caf-fiend. All rights reserved.</p>
-  </footer>
-
-  <script src="/js/register.js"></script>
-</body>
-
-</html>
+<section class="register-form">
+  <h2>Register</h2>
+  <form id="register-form" action="/api/users/register" method="POST">
+    <div>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+    <div>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" minlength="8" required>
+    </div>
+    <div>
+      <button type="submit">Register</button>
+    </div>
+  </form>
+</section>
