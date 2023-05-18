@@ -27,23 +27,24 @@ router.get('/login', (req, res) => {
     }
   
     res.render('login');
-  });
+});
 
-  router.get('/dashboard/:id', withAuth, async (req, res) => {
+router.get('/dashboard/', withAuth, async (req, res) => {
     try {
         const userDrinkData = await User.findOne({
-            where: { id: req.params.id },
+            where: { id: req.session.user_id },
             include: [{ model: Drink }, { model: Rating }]
         });
         const user = userDrinkData.get({ plain: true });
 
         res.render('user-dashboard', { user, logged_in: req.session.logged_in, user_id: req.session.user_id })
     } catch (err) {
+        console.log(err);
         res.status(500).json(err);
     }
-  });
+});
 
-  router.get('/drink/:id', async (req, res) => {
+router.get('/drink/:id', async (req, res) => {
     try {
         const drinkData = await Drink.findOne({
             where: { id: req.params.id },
@@ -70,6 +71,6 @@ router.get('/login', (req, res) => {
     } catch (err) {
         res.status(500).json(err);
     }
-  });
+});
 
-  module.exports = router;
+module.exports = router;
