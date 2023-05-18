@@ -6,10 +6,9 @@
 
     <div class="">
         {{#if logged_in}}
-        <h3>You may view any of the drinks that have been added to our database and rated/reviewed, but you must <a href="/login">log in or create an account</a> to add any drinks to our database or add your own ratings/reviews.</h3>
-        {{/if}}
-        {{#if logged_in}}
         <h3>Welcome back! Below, you can see all of the drinks that have been added to our database, and you can find all the drinks you've added or rated/reviewed on your dashboard!</h3>
+        {{else}}
+        <h3>You may view any of the drinks that have been added to our database and rated/reviewed, but you must <a href="/login">log in or create an account</a> to add any drinks to our database or add your own ratings/reviews.</h3>
         {{/if}}
     </div>
     <div class="drinks-list">
@@ -18,6 +17,10 @@
         {{/each}}
     </div>
 </section>
+
+{{> review-modal}}
+
+<script src="/js/reviewDrink.js"></script>
         
         
 

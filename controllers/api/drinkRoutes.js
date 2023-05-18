@@ -26,11 +26,19 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
   try {
     const newDrink = await Drink.create({
-      ...req.body,
-      user_id: req.session.user_id,
+      beverage: req.body.beverage,
+      bev_type: req.body.type,
+      current_rating: 0,
     });
+
+    const newUserDrink = await UserDrink.create({
+      user_id: req.session.user_id,
+      drink_id: newDrink.id,
+    })
+
     res.status(200).json(newDrink);
   } catch (err) {
+    console.log(err);
     res.status(400).json(err);
   }
 });
