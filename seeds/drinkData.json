@@ -1,10 +1,12 @@
 [
     {
         "beverage": "French Vanilla Roast",
-        "bev_type": "coffee"
+        "bev_type": "coffee",
+        "current_rating": "2"
     },
     {
         "beverage": "Bahama Mama GFUEL",
-        "bev_type": "energy supplement"
+        "bev_type": "energy supplement",
+        "current_rating": "3"
     }
 ]
