@@ -5,7 +5,9 @@ const { Rating, User, Drink } = require('../../models');
 router.post('/', async (req, res) => {
   try {
     const newRating = await Rating.create({
-      ...req.body,
+      rating: req.body.rating,
+      review: req.body.review,
+      drink_id: req.body.drink_id,
       user_id: req.session.user_id,
     });
     res.status(200).json(newRating);
