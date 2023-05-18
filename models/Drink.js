@@ -19,6 +19,11 @@ Drink.init(
             type: DataTypes.STRING,
             allowNull: false,
             // validate: { isBev() }
+        }, 
+        current_rating: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            defaultValue: '0'
         }
     },
     {
