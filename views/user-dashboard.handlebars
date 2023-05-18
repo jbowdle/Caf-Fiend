@@ -1,35 +1,26 @@
-  <main>
-    <section class="user-dashboard">
-      <h2>Welcome, {{user.name}}</h2>
+<section class="user-dashboard">
+  <h2>Welcome, {{user.name}}</h2>
 
-      <h3>Your Drinks</h3>
-      <ul class="drink-list">
-        {{#each drinks}}
-        <li>
-          <h4>{{beverage}}</h4>
-          <p>Type: {{bev_type}}</p>
-          <a href="/edit-beverage/{{id}}">Edit</a>
-        </li>
-        {{/each}}
-      </ul>
-      <a href="/add-beverage">Add a new beverage</a>
-      
-      <h3>Your Ratings</h3>
-      <ul class="rating-list">
-        {{#each ratings}}
-        <li>
-          <h4>{{drink.beverage}}</h4>
-          <p>Rating: {{rating}}</p>
-          <p>Review: {{review}}</p>
-        </li>
-        {{/each}}
-      </ul>
-    </section>
-  </main>
+  <h3>Your Drinks</h3>
+  <ul class="drink-list">
+    {{#each drinks}}
+    <li>
+      <h4>{{beverage}}</h4>
+      <p>Type: {{bev_type}}</p>
+      <a href="/edit-beverage/{{id}}">Edit</a>
+    </li>
+    {{/each}}
+  </ul>
+  <a href="/add-beverage">Add a new beverage</a>
 
-  <footer>
-    <p>&copy; Caf-fiend. All rights reserved.</p>
-  </footer>
-</body>
-
-</html>
+  <h3>Your Ratings</h3>
+  <ul class="rating-list">
+    {{#each ratings}}
+    <li>
+      <h4>{{drink.beverage}}</h4>
+      <p>Rating: {{rating}}</p>
+      <p>Review: {{review}}</p>
+    </li>
+    {{/each}}
+  </ul>
+</section>
