@@ -6,8 +6,8 @@
         <h3>{{drink.beverage}}</h3>
         <h4>{{drink.bev_type}}</h4>
             {{#if loggedIn}}
-            <a href="/edit-beverage/{{id}}">Edit Existing Beverages</a>
-            <a href="/add-beverage">Add a New Beverage</a>
+            <a href="/api/beverages/{{id}}">Edit Existing Beverages</a>
+            <a href="/api/beverages">Add a New Beverage</a>
             {{/if}}
         </li>        
         {{/each}}
