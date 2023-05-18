@@ -2,7 +2,15 @@
   --modal-bg: rgb(255, 212, 212);
   --modal-accent: rgb(255, 66, 66);
   --transparent: rgba(0,0,0,0);
-}
+  --primary-color: #333;
+  --secondary-color: #ffffff;
+  --background-color: #F5F5F5;
+  --nav-bg-color: #f8f9fa;
+  --section-bg-color: #fff;
+  --input-border-color: #ddd;
+  --button-hover-color: #555;
+  }
+
 
 .modal {
   display: none;
@@ -38,4 +46,143 @@
 .close:focus {
   text-decoration: none;
   cursor: pointer;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--background-color);
+  color: var(--primary-color);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+header {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  padding: 20px 0;
+  margin-bottom: 15px;
+}
+
+header h1 {
+  text-align: center;
+  font-size: 2em;
+}
+
+nav {
+  background-color: var(--nav-bg-color);
+  padding: 15px 0;
+  margin-bottom: 15px;
+}
+
+nav a {
+  margin: 0 15px;
+  color: var(--primary-color);
+  text-decoration: none;
+}
+ /* Sections styles */
+section {
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: var(--section-bg-color);
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+
+section h2 {
+  margin-bottom: 20px;
+  font-size: 1.5em;
+}
+
+form div {
+  margin-bottom: 10px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+form input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--input-border-color);
+  border-radius: 5px;
+}
+
+form button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: var(--button-hover-color);
+}
+/* Sections styles */
+.drink-list {
+  list-style: none;
+}
+
+.drink-list li {
+  margin-bottom: 20px;
+}
+
+.card {
+  padding: 20px;
+  border: 1px solid var(--input-border-color);
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+
+.card h3 {
+  font-size: 1.2em;
+}
+
+.card p {
+  margin-bottom: 10px;
+}
+
+.card a {
+  display: block;
+  margin-top: 10px;
+  color: var(--primary-color);
+}
+
+.footer {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  padding: 20px 0;
+  text-align: center;
+}
+
+@media only screen and (max-width: 768px) {
+  body {
+      font-size: 16px;
+  }
+
+  header h1 {
+      font-size: 1.5em;
+  }
+
+  section h2 {
+      font-size: 1.3em;
+  }
+
+  .card h3 {
+      font-size: 1em;
+  }
 }
