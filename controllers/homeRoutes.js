@@ -44,9 +44,13 @@ router.get('/dashboard/', withAuth, async (req, res) => {
                     ] 
                 }]
         });
-        console.log(userDrinkData);
         const user = userDrinkData.get({ plain: true });
 
+        if (user.drinks.ratings == undefined) {
+            user.drinks.ratings = [];
+        }
+        console.log(user);
+        console.log(user.drinks.ratings.length);
         res.render('user-dashboard', { user, logged_in: req.session.logged_in, user_id: req.session.user_id })
     } catch (err) {
         console.log(err);
