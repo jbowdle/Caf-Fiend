@@ -10,5 +10,17 @@
         "review": "I wish it had banana too, but it tastes great!",
         "user_id": "4",
         "drink_id": "2"
+    },
+    {
+        "rating": "5",
+        "review": null,
+        "user_id": "1",
+        "drink_id": "1"
+    },
+    {
+        "rating": "4",
+        "review": null,
+        "user_id": "2",
+        "drink_id": "1"
     }
 ]

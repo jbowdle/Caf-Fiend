@@ -23,7 +23,7 @@ Drink.init(
         current_rating: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            defaultValue: '0'
+            defaultValue: 0
         }
     },
     {
