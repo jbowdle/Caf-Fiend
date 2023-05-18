@@ -1,26 +1,31 @@
 <section class="user-dashboard">
-  <h2>Welcome, {{user.name}}</h2>
+  <h2>Welcome, {{username}}!</h2>
 
-  <h3>Your Drinks</h3>
-  <ul class="drink-list">
-    {{#each drinks}}
-    <li>
-      <h4>{{beverage}}</h4>
-      <p>Type: {{bev_type}}</p>
-      <a href="/edit-beverage/{{id}}">Edit</a>
-    </li>
+{{#if user.drinks}}
+  <h2>Your Drinks</h2>
+  <section class="drink-list">
+    {{#each drinks as |drink|}}
+    {{> user-drink-deets}}
     {{/each}}
-  </ul>
-  <a href="/add-beverage">Add a new beverage</a>
+    <button id="addDrinkBtn">Add New Drink</button>
+  </section>
+  {{else}}
+  <section class="no-drink-section">
+    <p>Is your favorite caffeinated beverage not already in our database? Push the button below to add a drink to the database and then you can leave its first rating, maybe even a review too!</p>
+    <button id="addDrinkBtn">Add New Drink</button>
+  </section>
+  {{/if}}
 
+{{#if user.ratings}}
   <h3>Your Ratings</h3>
-  <ul class="rating-list">
-    {{#each ratings}}
-    <li>
-      <h4>{{drink.beverage}}</h4>
-      <p>Rating: {{rating}}</p>
-      <p>Review: {{review}}</p>
-    </li>
+  <section class="rating-list">
+    {{#each ratings as |rating|}}
+    {{> user-rating-deets}}
     {{/each}}
-  </ul>
+  </section>
+  {{else}}
+  <section class="no-rating-section">
+    <p>You haven't rated any of your favorite caffeinated beverages yet! If you have any drinks added above, you can rate those! Otherwise, click on any of the drinks in our database that you'll find on the homepage to rate it, and maybe review it as well!</p>
+  </section>
+  {{/if}}
 </section>
