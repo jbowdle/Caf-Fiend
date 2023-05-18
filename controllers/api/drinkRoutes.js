@@ -29,8 +29,13 @@ router.post('/', async (req, res) => {
       beverage: req.body.beverage,
       bev_type: req.body.type,
       current_rating: 0,
-      user_id: req.session.user_id,
     });
+
+    const newUserDrink = await UserDrink.create({
+      user_id: req.session.user_id,
+      drink_id: newDrink.id,
+    })
+
     res.status(200).json(newDrink);
   } catch (err) {
     console.log(err);

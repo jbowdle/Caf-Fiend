@@ -1,10 +1,10 @@
 <section class="user-dashboard">
-  <h2>Welcome, {{username}}!</h2>
+  <h2>Welcome, {{user.username}}!</h2>
 
-{{#if user.drinks}}
+  {{#if user.drinks}}
   <h2>Your Drinks</h2>
   <section class="drink-list">
-    {{#each drinks as |drink|}}
+    {{#each user.drinks as |drink|}}
     {{> user-drink-deets}}
     {{/each}}
     <button id="addDrinkBtn">Add New Drink</button>
@@ -16,7 +16,7 @@
   </section>
   {{/if}}
 
-{{#if user.ratings}}
+  {{#if user.ratings}}
   <h3>Your Ratings</h3>
   <section class="rating-list">
     {{#each ratings as |rating|}}
