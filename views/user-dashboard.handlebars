@@ -2,10 +2,9 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>User Dashboard - Caf-fiend</title>
   <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/public/css/jass.css">
 </head>
 
 <body>
@@ -23,11 +22,11 @@
         <li>
           <h4>{{beverage}}</h4>
           <p>Type: {{bev_type}}</p>
-          <a href="/edit-beverage/{{id}}">Edit</a>
+          <a href="/api/beverages/{{beverage.id}}">Edit</a>
         </li>
         {{/each}}
       </ul>
-      <a href="/add-beverage">Add a new beverage</a>
+      <a href="/api/beverages">Add a new beverage</a>
       
       <h3>Your Ratings</h3>
       <ul class="rating-list">
