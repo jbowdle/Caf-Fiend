@@ -1,24 +1,15 @@
- <!DOCTYPE html>
-<html lang="en">
-
-<main>
-
 <section class="full-drink-list">
     <h2>Caf-fiend's Full List of Drinks</h2>
-<ul class="drink-list">
-    {{#each drinks as |drink|}}
-    <li>
-    <h3>{{drink.beverage}}</h3>
-    <h4>{{drink.bev_type}}</h4>
-        {{#if loggedIn}}
-        <a href="/edit-beverage/{{id}}">Edit Existing Beverages</a>
-        <a href="/add-beverage">Add a New Beverage</a>
-        {{/if}}
-    </li>        
-    {{/each}}
-</ul>
+    <ul class="drink-list">
+        {{#each drinks as |drink|}}
+        <li>
+        <h3>{{drink.beverage}}</h3>
+        <h4>{{drink.bev_type}}</h4>
+            {{#if loggedIn}}
+            <a href="/edit-beverage/{{id}}">Edit Existing Beverages</a>
+            <a href="/add-beverage">Add a New Beverage</a>
+            {{/if}}
+        </li>        
+        {{/each}}
+    </ul>
 </section>    
-
-</main>
-</body>
-</html>
