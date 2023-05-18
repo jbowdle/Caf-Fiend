@@ -6,18 +6,7 @@
   <button id="addDrinkBtn">Add New Drink</button>
   <section class="drink-list">
     {{#each user.drinks as |drink|}}
-    <section class="card user-drink-deets">
-      <h3>{{beverage}}</h3>
-      <p>Type: {{bev_type}}</p>
-      <p>Current User Rating: {{current_rating}}</p>
-      {{!-- Following section breaks code --}}
-      
-      {{!-- {{#if count === 1}}
-      <P>This drink you added to our database has only been rated once so far.</P>
-      {{else}}
-      <p>This drink you added to our database has been rated {{count}} times.</p>
-      {{/if}} --}}
-    </section>
+    {{> drink-deets}}
     {{/each}}
   </section>
   {{else}}
@@ -30,7 +19,7 @@
   {{#if user.ratings}}
   <h3>Your Ratings</h3>
   <section class="rating-list">
-    {{#each ratings as |rating|}}
+    {{#each user.ratings as |rating|}}
     {{> user-rating-deets}}
     {{/each}}
   </section>
@@ -42,6 +31,7 @@
 </section>
 
 {{!-- Modal for adding drinks. See public/js/addDrink.js --}}
+{{!-- May be possible to combine this with review-modal partial --}}
 <section id="addDrinkModal" class="modal">
   <div class="modal-content">
     <span class="close">&times;</span>
@@ -64,4 +54,7 @@
   </div>
 </section>
 
+{{> review-modal}}
+
+<script src="/js/reviewDrink.js"></script>
 <script src="/js/addDrink.js"></script>
