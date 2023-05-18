@@ -1,21 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Caf-Fiend</title>
-  <link rel="stylesheet" href="/public/css/jass.css">
-  <link rel="stylesheet" href="/public/css/style.css">
+  <!-- Include any necessary CSS files, such as Bootstrap, in the head tag -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
 </head>
 
 <body>
-  <div class="flex-column justify-space-around">
-    <header class="display-flex justify-space-between align-center p-2">
-      <h1>
-        Caf-Fiend
-      </h1>
-    </header>
-      <main class="container container-fluid mt-5">
-        {{{ body }}}
-      </main>
-  </div>
-  </body>
+  {{> navbar}}
+
+  <main role="main" class="container">
+    {{{body}}}
+  </main>
+
+  {{> footer}}
+</body>
 
 </html>
