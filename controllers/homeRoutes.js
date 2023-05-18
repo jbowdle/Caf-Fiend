@@ -4,6 +4,8 @@ const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
     try {
+        const dbDrinkData = await Drink.findAll({});
+
         const drinkData = dbDrinkData.map((drink) => drink.get({ plain: true }));
         
         res.render('homepage', {
@@ -11,6 +13,9 @@ router.get('/', async (req, res) => {
             logged_in: req.session.logged_in
         });
     } catch (err) {
+        // debug
+        console.log(err);
+
         res.status(500).json(err);
     }
 });
