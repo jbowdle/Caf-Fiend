@@ -10,7 +10,8 @@ router.post('/signup', async (req, res) => {
       res.status(200).json(userData);
     });
   } catch (err) {
-    res.status(400).json(err);
+    console.error(err);
+    res.status(400).json({ message: 'Failed to sign up.', error: err.message });
   }
 });
 
