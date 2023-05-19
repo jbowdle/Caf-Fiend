@@ -1,26 +1,14 @@
 const User = require('./User');
 const Drink = require('./Drink');
 const Rating = require('./Rating');
-const UserDrink = require('./UserDrink');
 
-User.belongsToMany(Drink, {
-    through: UserDrink,
-    foreignKey: 'user_id'
-});
-
-Drink.belongsToMany(User, {
-    through: UserDrink,
-    foreignKey: 'drink_id'
-});
-
-UserDrink.belongsTo(User, {
+User.hasMany(Drink, {
     foreignKey: 'user_id',
     onDelete: 'CASCADE'
 });
 
-UserDrink.belongsTo(Drink, {
-    foreignKey: 'drink_id',
-    onDelete: 'CASCADE'
+Drink.belongsTo(User, {
+    foreignKey: 'user_id',
 });
 
 User.hasMany(Rating, {
@@ -41,4 +29,4 @@ Rating.belongsTo(Drink, {
     foreignKey: 'drink_id'
 })
 
-module.exports = { User, Drink, Rating, UserDrink };
+module.exports = { User, Drink, Rating};

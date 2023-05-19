@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Drink, Rating, UserDrink } = require('../models');
+const { User, Drink, Rating} = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
@@ -33,25 +33,26 @@ router.get('/dashboard/', withAuth, async (req, res) => {
     try {
         const userDrinkData = await User.findOne({
             where: { id: req.session.user_id },
+            include: [{ model: Drink }]
+        });
+        const userRatingData = await User.findOne({
+            where: { id: req.session.user_id },
             include: [
-                { 
-                    model: Drink,
-                    include: [
-                        {
-                            model: Rating,
-                            attributes: ['id', 'rating']
-                        }
-                    ] 
-                }]
+                {
+                    model: Rating,
+                    include: { model: Drink }
+                }
+            ]
         });
         const user = userDrinkData.get({ plain: true });
+        const ratings = userRatingData.get({ plain: true });
 
         if (user.drinks.ratings == undefined) {
             user.drinks.ratings = [];
         }
         console.log(user);
-        console.log(user.drinks.ratings.length);
-        res.render('user-dashboard', { user, logged_in: req.session.logged_in, user_id: req.session.user_id })
+        console.log(ratings.drink);
+        res.render('user-dashboard', { user, ratings, logged_in: req.session.logged_in, user_id: req.session.user_id })
     } catch (err) {
         console.log(err);
         res.status(500).json(err);

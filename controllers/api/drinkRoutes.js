@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Drink, User, Rating, UserDrink } = require('../../models');
+const { Drink, User, Rating} = require('../../models');
 
 // Get all drinks with related user and rating information
 router.get('/', async (req, res) => {

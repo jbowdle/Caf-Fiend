@@ -16,10 +16,10 @@
   </section>
   {{/if}}
 
-{{#if user.ratings}}
+{{#if ratings}}
   <h3>Your Ratings</h3>
   <section class="rating-list">
-    {{#each user.ratings as |rating|}}
+    {{#each ratings as |rating|}}
     {{> user-rating-deets}}
     {{/each}}
   </section>
