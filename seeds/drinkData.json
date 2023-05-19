@@ -2,11 +2,26 @@
     {
         "beverage": "French Vanilla Roast",
         "bev_type": "coffee",
-        "current_rating": "2"
+        "current_rating": "2",
+        "user_id": "3"
     },
     {
         "beverage": "Bahama Mama GFUEL",
         "bev_type": "energy supplement",
-        "current_rating": "3"
+        "current_rating": "3",
+        "user_id": "4"
+    },
+    {
+        "beverage": "French Chocolate Roast",
+        "bev_type": "coffee",
+        "current_rating": "2",
+        "user_id": "1"
+    },
+    {
+        "beverage": "Unstable Portal Fluid GFUEL",
+        "bev_type": "energy supplement",
+        "current_rating": "3",
+        "user_id": "2"
     }
+    
 ]

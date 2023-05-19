@@ -1,9 +1,7 @@
 <section class="card user-rating-deets">
-    {{!-- beverage, bev_type don't show up because this section is only passed
-    the rating model, not the drink model. Not sure how to access the drink data --}}
-    <h3>{{beverage}}</h3>
-    <p>Type: {{bev_type}}</p>
-    <p>Current Rating: {{current_rating}}</p>
+    <h3>{{drinks.beverage}}</h3>
+    <p>Type: {{drinks.bev_type}}</p>
+    <p>Current Rating: {{drinks.current_rating}}</p>
     <p>Your rating: {{rating}}</p>
     {{#if review}}
     <p class="review">{{review}}</p>
