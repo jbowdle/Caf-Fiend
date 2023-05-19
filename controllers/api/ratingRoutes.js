@@ -8,7 +8,7 @@ router.post('/', async (req, res) => {
       rating: req.body.rating,
       review: req.body.review,
       drink_id: req.body.drink_id,
-      user_id: req.session.user_id,
+      user_id: req.body.user_id,
     });
     res.status(200).json(newRating);
   } catch (err) {

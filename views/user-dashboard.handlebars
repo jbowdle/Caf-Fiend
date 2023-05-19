@@ -3,11 +3,11 @@
 
   {{#if user.drinks}}
   <h2>Your Drinks</h2>
-  <button id="addDrinkBtn">Add New Drink</button>
   <section class="drink-list">
-    {{#each user.user.drinks as |drink|}}
+    {{#each user.drinks as |drink|}}
     {{> user-drink-deets}}
     {{/each}}
+    <button id="addDrinkBtn">Add New Drink</button>
   </section>
   {{else}}
   <section class="no-drink-section">
@@ -16,7 +16,7 @@
   </section>
   {{/if}}
 
-{{#if ratings}}
+{{#if user.ratings}}
   <h3>Your Ratings</h3>
   <section class="rating-list">
     {{#each user.ratings as |rating|}}
