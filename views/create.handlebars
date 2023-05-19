@@ -1,12 +1,24 @@
 <section class="add-beverage">
   <h2>Add Beverage</h2>
 
-  <label>Beverage Name:</label>
-  <input type="text" id="beverageName" name="beverage" required>
+  <form class="drink-form">
+    <div class="form-group">
+      <label>Beverage Name:</label>
+      <input type="text" id="beverageName" name="beverage" required>
+    </div>
+    <div class="form-group">
+      <label>Beverage Type:</label>
+      <input type="text" id="beverageType" name="bev_type" required>
+    </div>
+    <div class="form-group">
+      <button class="btn" type="submit">Add Drink</button>
+    </div>
+  </form>
 
   <label>Beverage Type:</label>
   <input type="text" id="beverageType" name="bev_type" required>
 
   <a href="/api/beverages">Add Beverage</a>
   <script src="/public/js/addDrink.js"></script>
+
 </section>

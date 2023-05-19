@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Drink, User, Rating, UserDrink } = require('../../models');
+const { Drink, User, Rating} = require('../../models');
 
 // Get all drinks with related user and rating information
 router.get('/', async (req, res) => {
@@ -26,15 +26,24 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
   try {
     const newDrink = await Drink.create({
-      ...req.body,
-      user_id: req.session.user_id,
+      beverage: req.body.beverage,
+      bev_type: req.body.type,
+      current_rating: 0,
     });
+
+    const newUserDrink = await UserDrink.create({
+      user_id: req.session.user_id,
+      drink_id: newDrink.id,
+    })
+
     res.status(200).json(newDrink);
   } catch (err) {
+    console.log(err);
     res.status(400).json(err);
   }
 });
 
+// finds the average of all currently existing ratings for a drink and updates the current_rating column
 router.put('/:id', async (req, res) => {
   try {
     const drinkId = req.params.id;
@@ -43,7 +52,6 @@ router.put('/:id', async (req, res) => {
       include: [{ model: Rating }],
     });
 
-    
     const currentRatings = drinkToUpdate.ratings.map(rating => {
       return rating.rating;
     });
@@ -58,7 +66,22 @@ router.put('/:id', async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
-})
+});
+
+router.delete('/delete/:id', async (req, res) => {
+  try {
+    const deletedDrink = await Drink.destroy({
+      where: { id: req.params.id }
+    });
+    if (deletedDrink === 0) {
+      res.status(404).json({ message: 'No drink found with that id.'});
+      return;
+    }
+    res.status(200).json({ message: 'Drink successfully destroyed, you monster!'});
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 
 module.exports = router;

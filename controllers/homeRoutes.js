@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Drink, Rating, UserDrink } = require('../models');
+const { User, Drink, Rating} = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
@@ -33,11 +33,26 @@ router.get('/dashboard/', withAuth, async (req, res) => {
     try {
         const userDrinkData = await User.findOne({
             where: { id: req.session.user_id },
-            include: [{ model: Drink }, { model: Rating }]
+            include: [{ model: Drink }]
+        });
+        const userRatingData = await User.findOne({
+            where: { id: req.session.user_id },
+            include: [
+                {
+                    model: Rating,
+                    include: { model: Drink }
+                }
+            ]
         });
         const user = userDrinkData.get({ plain: true });
+        const ratings = userRatingData.get({ plain: true });
 
-        res.render('user-dashboard', { user, logged_in: req.session.logged_in, user_id: req.session.user_id })
+        if (user.drinks.ratings == undefined) {
+            user.drinks.ratings = [];
+        }
+        console.log(user);
+        console.log(ratings.drink);
+        res.render('user-dashboard', { user, ratings, logged_in: req.session.logged_in, user_id: req.session.user_id })
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
@@ -48,27 +63,31 @@ router.get('/drink/:id', async (req, res) => {
     try {
         const drinkData = await Drink.findOne({
             where: { id: req.params.id },
-            include: [{ model: User }, { model: Rating }]
+            include: {all: true, nested: true}
         });
 
         const drink = drinkData.get({ plain: true });
 
-        drink.ratings = drink.comments || [];
-        if (Array.isArray(drink.ratings)) {
-            for (let i = 0; i < drink.ratings.length; i++) {
-                const ratingData = drink.ratings[i];
-                const rating = await Rating.findOne({
-                    where: { id: ratingData.id },
-                    include: { model: User }
-                });
-                drink.ratings[i] = rating.get({ plain: true });
-                drink.ratings[i].user.username = rating.user.username;
-                drink.ratings[i].created_at_formatted = new Date(drink.rating[i].createdAt).toLocaleDateString;
-            }
-        }
+        // Not sure what this is used for, didn't need the code for rendering the 'drink' handlebars
+        // drink.ratings = drink.comments || [];
+        // if (Array.isArray(drink.ratings)) {
+        //     for (let i = 0; i < drink.ratings.length; i++) {
+        //         const ratingData = drink.ratings[i];
+        //         const rating = await Rating.findOne({
+        //             where: { id: ratingData.id },
+        //             include: { model: User }
+        //         });
+        //         drink.ratings[i] = rating.get({ plain: true });
+        //         drink.ratings[i].user.username = rating.user.username;
+        //         drink.ratings[i].created_at_formatted = new Date(drink.rating[i].createdAt).toLocaleDateString;
+        //     }
+        // }
+
+        console.log(drink);
 
         res.render('drink', { drink, logged_in: req.session.logged_in })
     } catch (err) {
+        console.log(err);
         res.status(500).json(err);
     }
 });
