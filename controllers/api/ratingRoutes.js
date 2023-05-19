@@ -33,7 +33,7 @@ router.put('/:id', async (req, res) => {
   }
 });
 
-router.delete('/:id', async (req, res) => {
+router.delete('/delete/:id', async (req, res) => {
   try {
     const rating = await Rating.findOne({ where: { id: req.params.id } });
     if (!rating) {
