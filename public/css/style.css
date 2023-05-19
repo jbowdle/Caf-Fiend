@@ -68,7 +68,7 @@ body {
 }
 
 header {
-  background-image: url("assets/coffee-img1.png");
+  background-image: url("assets/coffee3Header.png");
   background-size: cover;
   background-position: center;
   background-color: var(--primary-color);
