@@ -69,9 +69,12 @@ body {
 }
 
 header {
-  /* background-color: var(--primary-color);
-  color: var(--secondary-color); */
-  padding: 20px 0;
+  background-image: url("assets/coffee3Header.png");
+  background-size: cover;
+  background-position: center;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  padding: 35px 0;
   margin-bottom: 15px;
   font-size: large;
   color:silver;
@@ -99,7 +102,7 @@ header {
 
 
 header h1 {
-  text-align: center;
+  text-align: left;
   font-size: 2em;
 }
 

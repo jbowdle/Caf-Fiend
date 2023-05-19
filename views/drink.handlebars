@@ -1,15 +1,19 @@
-<section class="full-drink-list">
-    <h2>Caf-fiend's Full List of Drinks</h2>
-    <ul class="drink-list">
-        {{#each drinks as |drink|}}
-        <li>
-        <h3>{{drink.beverage}}</h3>
-        <h4>{{drink.bev_type}}</h4>
-            {{#if loggedIn}}
-            <a href="/api/beverages/{{id}}">Edit Existing Beverages</a>
-            <a href="/api/beverages">Add a New Beverage</a>
+<section>
+    <section>
+        <h2>{{drink.beverage}}</h2>
+        <p>Current rating: {{drink.current_rating}}</p>
+        <h2>Reviews:</h2>
+        {{!-- Named rate instead of rating to avoid naming conflict --}}
+        {{#each drink.ratings as |rate|}}
+        <section>
+            <h3>{{user.username}}</h3>
+            <p>{{rating}}</p>
+            {{#if review}}
+            <p>{{review}}</p>
+            {{else}}
+            <p>No review</p>
             {{/if}}
-        </li>        
+        </section>
         {{/each}}
-    </ul>
+    </section>
 </section>
