@@ -73,12 +73,12 @@ header {
   background-position: center;
   background-color: var(--primary-color);
   color: var(--secondary-color);
-  padding: 20px 0;
+  padding: 35px 0;
   margin-bottom: 15px;
 }
 
 header h1 {
-  text-align: center;
+  text-align: left;
   font-size: 2em;
 }
 
