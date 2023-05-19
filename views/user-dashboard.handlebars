@@ -1,13 +1,13 @@
 <section class="user-dashboard">
-  <h2>Welcome, {{username}}!</h2>
+  <h2>Welcome, {{user.username}}!</h2>
 
-{{#if user.drinks}}
+  {{#if user.drinks}}
   <h2>Your Drinks</h2>
+  <button id="addDrinkBtn">Add New Drink</button>
   <section class="drink-list">
-    {{#each user.drinks as |drink|}}
+    {{#each user.user.drinks as |drink|}}
     {{> user-drink-deets}}
     {{/each}}
-    <button id="addDrinkBtn">Add New Drink</button>
   </section>
   {{else}}
   <section class="no-drink-section">
@@ -19,7 +19,7 @@
 {{#if ratings}}
   <h3>Your Ratings</h3>
   <section class="rating-list">
-    {{#each ratings as |rating|}}
+    {{#each user.ratings as |rating|}}
     {{> user-rating-deets}}
     {{/each}}
   </section>
@@ -29,3 +29,32 @@
   </section>
   {{/if}}
 </section>
+
+{{!-- Modal for adding drinks. See public/js/addDrink.js --}}
+{{!-- May be possible to combine this with review-modal partial --}}
+<section id="addDrinkModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+
+    <h2>Add Beverage</h2>
+
+    <form class="drink-form">
+      <div class="form-group">
+        <label>Beverage Name:</label>
+        <input type="text" id="beverageName" name="beverage" required>
+      </div>
+      <div class="form-group">
+        <label>Beverage Type:</label>
+        <input type="text" id="beverageType" name="bev_type" required>
+      </div>
+      <div class="form-group">
+        <button class="btn" type="submit">Add Drink</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+{{> review-modal}}
+
+<script src="/js/reviewDrink.js"></script>
+<script src="/js/addDrink.js"></script>
