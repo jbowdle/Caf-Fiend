@@ -16,12 +16,14 @@ const addDrinkHandler = async(event) => {
   event.preventDefault();
 
   const beverage = document.querySelector("#beverageName").value.trim();
-  const type = document.querySelector("#beverageType").value.trim();
+  const bev_type = document.querySelector("#beverageType").value.trim();
+  const userIdInput = document.querySelector('input[name="user_id"]');
+  const user_id = userIdInput.value;
 
-  if (beverage && type) {
+  if (beverage && bev_type) {
     const response = await fetch('/api/drinks', {
       method: 'POST',
-      body: JSON.stringify({ beverage, type }),
+      body: JSON.stringify({ beverage, bev_type, user_id }),
       headers: { 'Content-Type': 'application/json' },
     });
 
