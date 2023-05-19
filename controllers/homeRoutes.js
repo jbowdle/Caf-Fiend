@@ -33,26 +33,17 @@ router.get('/dashboard/', withAuth, async (req, res) => {
     try {
         const userDrinkData = await User.findOne({
             where: { id: req.session.user_id },
-            include: [{ model: Drink }]
-        });
-        const userRatingData = await User.findOne({
-            where: { id: req.session.user_id },
-            include: [
-                {
-                    model: Rating,
-                    include: { model: Drink }
-                }
-            ]
+            include: { all: true, nested: true }  
+            // [{ model: Drink,
+            // include: { model: Rating }}]
         });
         const user = userDrinkData.get({ plain: true });
-        const ratings = userRatingData.get({ plain: true });
 
-        if (user.drinks.ratings == undefined) {
-            user.drinks.ratings = [];
+        console.log('User blablabla: ', user);
+        for (i = 0; i < user.ratings.length; i++) {
+            console.log(user.ratings[i]);
         }
-        console.log(user);
-        console.log(ratings.drink);
-        res.render('user-dashboard', { user, ratings, logged_in: req.session.logged_in, user_id: req.session.user_id })
+        res.render('user-dashboard', { user, logged_in: req.session.logged_in, user_id: req.session.user_id })
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
