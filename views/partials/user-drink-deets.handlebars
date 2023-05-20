@@ -2,6 +2,11 @@
     <h3>{{beverage}}</h3>
     <p>Type: {{bev_type}}</p>
     <p>Current User Rating: {{current_rating}}</p>
+    {{#if ratings.[0]}}
+    <a href="/drink/{{id}}">See all reviews</a>
+    {{else}}
+    <button data-drinkID="{{id}}" class="reviewDrinkBtn">Add your own review</button>
+    {{/if}}
     {{!-- {{#if (ratings.length === 1)}}
     This drink you added to our database has only been rated once so far.
     {{else}}

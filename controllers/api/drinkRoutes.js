@@ -25,6 +25,13 @@ router.get('/', async (req, res) => {
 // Create a new drink
 router.post('/', async (req, res) => {
   try {
+    const existingDrink = await Drink.findOne({
+      where: { beverage: capitalizedBeverageName },
+    });
+    if (existingDrink) {
+      throw new Error('The beverage name already exists');
+    }
+
     const newDrink = await Drink.create({
       beverage: req.body.beverage,
       bev_type: req.body.bev_type,

@@ -30,25 +30,28 @@ router.get('/login', (req, res) => {
 });
 
 router.get('/dashboard/', withAuth, async (req, res) => {
-    try {
-        const userDrinkData = await User.findOne({
-            where: { id: req.session.user_id },
-            include: { all: true, nested: true }  
-            // [{ model: Drink,
-            // include: { model: Rating }}]
-        });
-        const user = userDrinkData.get({ plain: true });
+  try {
+    const userDrinkData = await User.findOne({
+      where: { id: req.session.user_id },
+      include: { all: true, nested: true }
+    });
 
-        console.log('User blablabla: ', user);
-        for (i = 0; i < user.ratings.length; i++) {
-            console.log(user.ratings[i]);
-        }
-        res.render('user-dashboard', { user, logged_in: req.session.logged_in, user_id: req.session.user_id })
-    } catch (err) {
-        console.log(err);
-        res.status(500).json(err);
-    }
+    const user = userDrinkData.get({ plain: true });
+
+    user.drinks = user.drinks.map(drink => {
+      drink.ratings = drink.ratings.filter(rating => rating.user_id === user.id);
+      return drink;
+    });
+
+    console.log('User drinks with filtered ratings: ', user.drinks[0].ratings);
+
+    res.render('user-dashboard', { user, logged_in: req.session.logged_in, user_id: req.session.user_id })
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
 });
+
 
 router.get('/drink/:id', async (req, res) => {
     try {
