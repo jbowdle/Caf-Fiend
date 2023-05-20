@@ -3,6 +3,7 @@
 const reviewModal = document.querySelector("#reviewDrinkModal");
 const openReviewModal = document.querySelectorAll(".reviewDrinkBtn");
 const closeReviewModal = document.querySelector(".close");
+const editBtn = document.querySelectorAll(".editBtn");
 
 let drink_id;
 
