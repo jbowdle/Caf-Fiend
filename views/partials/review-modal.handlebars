@@ -4,7 +4,12 @@
 
     <h2>Review</h2>
 
-    <form class="review-form">
+    {{#if beverage}}
+    <form class="add-review-form">
+    {{/if}}
+    {{#if rating}}
+    <form class="edit-review-form">
+    {{/if}}
       <div class="form-group">
         <label for="rating-select">Rating</label>
         <select id="rating-select" name="rating-select">
