@@ -2,6 +2,9 @@
     <h2>{{beverage}}</h2>
     <h3>{{bev_type}}</h3>
     <h3>User Rating: {{current_rating}}</h3>
+    {{#if ratings.[0]}}
     <a href="/drink/{{id}}">See all reviews</a>
+    {{else}}
     <button data-drinkID="{{id}}" class="reviewDrinkBtn">Add your own review</button>
+    {{/if}}
 </section>

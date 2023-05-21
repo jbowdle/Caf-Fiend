@@ -1,8 +1,11 @@
 // May be possible to combine this file with addDrink.js to reduce repetition and avoid errors
 
 const reviewModal = document.querySelector("#reviewDrinkModal");
+const editModal= document.querySelector("#editReviewModal");
 const openReviewModal = document.querySelectorAll(".reviewDrinkBtn");
-const closeReviewModal = document.querySelector(".close");
+const openEditModal = document.querySelector(".editReviewBtn");
+const closeReviewModal = document.querySelector(".closeAdd");
+const closeEditModal = document.querySelector(".closeEdit");
 
 let drink_id;
 let rating_id;

@@ -6,8 +6,8 @@
     <input type="hidden" name="rating_id" value="{{id}}">
     {{#if review}}
     <p class="review">{{review}}</p>
-    <button data-ratingID="{{id}}" data-drinkID="{{drink.id}}" class="reviewDrinkBtn">Edit Review</button>
+    <button data-ratingID="{{id}}" data-drinkID="{{drink.id}}" class="editReviewBtn">Edit Review</button>
     {{else}}
-    <button data-ratingID="{{id}}" data-drinkID="{{drink.id}}" class="reviewDrinkBtn">Add Review</button>
+    <button data-ratingID="{{id}}" data-drinkID="{{drink.id}}" class="editReviewBtn">Add Review</button>
     {{/if}}
 </section>
