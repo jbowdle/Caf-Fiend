@@ -43,8 +43,6 @@ router.get('/dashboard/', withAuth, async (req, res) => {
       return drink;
     });
 
-    console.log('User drinks with filtered ratings: ', user.drinks[0].ratings);
-
     res.render('user-dashboard', { user, logged_in: req.session.logged_in, user_id: req.session.user_id })
   } catch (err) {
     console.log(err);

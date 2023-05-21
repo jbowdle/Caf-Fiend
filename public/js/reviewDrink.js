@@ -3,14 +3,12 @@
 const reviewModal = document.querySelector("#reviewDrinkModal");
 const openReviewModal = document.querySelectorAll(".reviewDrinkBtn");
 const closeReviewModal = document.querySelector(".close");
-const editBtn = document.querySelectorAll(".editBtn");
 
 let drink_id;
 
 openReviewModal.forEach(btn => {
   btn.addEventListener("click", (e) => {
     drink_id = e.target.dataset.drinkid;
-    console.log(drink_id);
     reviewModal.style.display = "block"
   });
 });
@@ -31,14 +29,11 @@ const reviewDrinkHandler = async(event) => {
 
   const rating = document.querySelector("#rating-select").value;
   const review = document.querySelector("#review").value.trim();
-  const userIdInput = document.querySelector('input[name="user_id"]');
-  const userId = userIdInput.value;
-  const user_id = parseInt(userId);
 
   if (rating) {
     const response = await fetch('/api/ratings', {
       method: 'POST',
-      body: JSON.stringify({ rating, review, drink_id, user_id }),
+      body: JSON.stringify({ rating, review, drink_id }),
       headers: { 'Content-Type': 'application/json' },
     });
 
