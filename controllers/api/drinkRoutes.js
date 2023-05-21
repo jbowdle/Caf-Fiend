@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Drink, User, Rating} = require('../../models');
+const toTitleCase = require('to-title-case');
 
 // Get all drinks with related user and rating information
 router.get('/', async (req, res) => {
@@ -33,8 +34,8 @@ router.post('/', async (req, res) => {
     }
 
     const newDrink = await Drink.create({
-      beverage: req.body.beverage,
-      bev_type: req.body.bev_type,
+      beverage: toTitleCase(req.body.beverage),
+      bev_type: toTitleCase(req.body.bev_type),
       user_id: req.body.user_id,
       current_rating: 0,
     });
