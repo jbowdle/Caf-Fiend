@@ -5,8 +5,8 @@
     <p>Your rating: {{rating}}</p>
     {{#if review}}
     <p class="review">{{review}}</p>
-    <button class="editBtn">Edit Review</button>
+    <button data-drinkID="{{id}}" class="reviewDrinkBtn">Edit Review</button>
     {{else}}
-    <button class="editBtn">Add Review</button>
+    <button data-drinkID="{{id}}" class="reviewDrinkBtn">Add Review</button>
     {{/if}}
 </section>

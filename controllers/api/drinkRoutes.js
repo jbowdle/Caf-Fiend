@@ -26,7 +26,7 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
   try {
     const existingDrink = await Drink.findOne({
-      where: { beverage: capitalizedBeverageName },
+      where: { beverage: req.body.beverage },
     });
     if (existingDrink) {
       throw new Error('The beverage name already exists');
