@@ -3,10 +3,11 @@
     <p>Type: {{drink.bev_type}}</p>
     <p>Current Rating: {{drink.current_rating}}</p>
     <p>Your rating: {{rating}}</p>
+    <input type="hidden" name="rating_id" value="{{id}}">
     {{#if review}}
     <p class="review">{{review}}</p>
-    <button data-drinkID="{{id}}" class="reviewDrinkBtn">Edit Review</button>
+    <button data-ratingID="{{id}}" data-drinkID="{{drink.id}}" class="reviewDrinkBtn">Edit Review</button>
     {{else}}
-    <button data-drinkID="{{id}}" class="reviewDrinkBtn">Add Review</button>
+    <button data-ratingID="{{id}}" data-drinkID="{{drink.id}}" class="reviewDrinkBtn">Add Review</button>
     {{/if}}
 </section>
