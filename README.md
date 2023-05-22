@@ -37,8 +37,8 @@ To use this application, follow these steps:
 
 ## App 
 
-![]([public/css/assets/page screenshot.png](https://github.com/jbowdle/Caf-Fiend/blob/e36b380a07b7af93cbb363931b5b422bcc4cbba3/public/css/assets/page%20screenshot.png))
-![]([public/css/assets/page screenshot2.png](https://github.com/jbowdle/Caf-Fiend/blob/e36b380a07b7af93cbb363931b5b422bcc4cbba3/public/css/assets/page%20screenshot2.png))
+<img src="public/css/assets/page screenshot.png" alt="screenshot of Caf-Fiend webpage" style="display: block; margin: 0; max-width: 300px;">
+<img src="public/css/assets/page screenshot2.png" alt="screenshot of Caf-Fiend webpage" style="display: block; margin: 0; max-width: 300px;">
 
 
 ## License
