@@ -37,8 +37,8 @@ To use this application, follow these steps:
 
 ## App 
 
-![](public\css\assets\page screenshot.png)
-![](public\css\assets\page screenshot2.png)
+![](public/css/assets/page screenshot.png)
+![](public/css/assets/page screenshot2.png)
 
 
 ## License
