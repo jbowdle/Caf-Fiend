@@ -34,7 +34,7 @@
 }
 
 /* Close button for modal */
-.close {
+.closeAdd, .closeEdit {
   position: absolute;
   right: 5px;
   top: 5px;
@@ -193,7 +193,7 @@ form button:hover {
   margin-bottom: 20px;
 }
 
-.reviewDrinkBtn {
+.reviewDrinkBtn, .editReviewBtn {
   padding: 10px;
   display:flex;
   justify-content: center;
