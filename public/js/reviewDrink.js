@@ -65,9 +65,11 @@ const addReviewHandler = async(event) => {
     const currentRating = await fetch(`/api/drinks/${drink_id}`, {
       method: 'PUT',
     });
-    const updateRating = await currentRating.json();
 
-    if (response.ok && updateRating.ok) {
+    if (response.ok && currentRating.ok) {
+      document.location.reload();
+    } else {
+      window.alert("There was an error processing this new rating/review. You've likely already rated this drink. Please check your dashboard if you would like to update your rating/review.");
       document.location.reload();
     }
   }
