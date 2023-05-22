@@ -68,7 +68,7 @@ const addReviewHandler = async(event) => {
     const updateRating = await currentRating.json();
 
     if (response.ok && updateRating.ok) {
-      window.location.reload();
+      document.location.reload();
     }
   }
 };
@@ -91,9 +91,9 @@ const reviewDrinkHandler = async(event) => {
     const currentRating = await fetch(`/api/drinks/${drink_id}`, {
       method: 'PUT',
     });
-console.log(rating_id, drink_id, ratingData, reviewData);
+
     if (response.ok && currentRating.ok) {
-      // window.location.reload();
+      document.location.reload();
     }
   }
 };
