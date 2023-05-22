@@ -11,7 +11,7 @@ Application for keeping track of a caffeine drinker's favorite drinks. A user ca
 
 - [Installation](#installation)
 - [Usage](#usage)
-- [Demo Link](#demo-link)
+- [App](#app)
 - [License](#license)
 - [Contributing](#contributing)
 - [Tests](#tests)
@@ -19,6 +19,9 @@ Application for keeping track of a caffeine drinker's favorite drinks. A user ca
 
 ## Installation
 
+1. Clone the repository to your local machine.
+2. Navigate to the project directory.
+3. Run 'npm install' to install the required dependecies
 
 
 ## Usage
@@ -32,7 +35,10 @@ To use this application, follow these steps:
    - Update your personal ranking for each beverage you have tried.
 4. Enjoy tracking your favorite caffeinated beverages!
 
-## Demo link
+## App 
+
+![](public\css\assets\page screenshot.png)
+![](public\css\assets\page screenshot2.png)
 
 
 ## License
