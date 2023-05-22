@@ -27,7 +27,7 @@ Application for keeping track of a caffeine drinker's favorite drinks. A user ca
 ## Usage
 
 To use this application, follow these steps:
-1. Click the following link to access the application: [Caf-Fiend App](https://safe-tundra-43941.herokuapp.com/).
+1. Click the following link to access the application: [Caf-Fiend App](https://mighty-cove-96789.herokuapp.com/).
 2. Sign up or log in to your account.
 3. Once logged in, you can perform the following actions:
    - Add a new drink by clicking on "Add Drinks".
