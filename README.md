@@ -11,7 +11,7 @@ Application for keeping track of a caffeine drinker's favorite drinks. A user ca
 
 - [Installation](#installation)
 - [Usage](#usage)
-- [Demo Link](#demo-link)
+- [App](#app)
 - [License](#license)
 - [Contributing](#contributing)
 - [Tests](#tests)
@@ -19,13 +19,26 @@ Application for keeping track of a caffeine drinker's favorite drinks. A user ca
 
 ## Installation
 
+1. Clone the repository to your local machine.
+2. Navigate to the project directory.
+3. Run 'npm install' to install the required dependecies
 
 
 ## Usage
 
+To use this application, follow these steps:
+1. Click the following link to access the application: [Caf-Fiend App](https://safe-tundra-43941.herokuapp.com/).
+2. Sign up or log in to your account.
+3. Once logged in, you can perform the following actions:
+   - Add a new drink by clicking on "Add Drinks".
+   - Add a review to an existing drink by clicking on "Add a Review" for that drink.
+   - Update your personal ranking for each beverage you have tried.
+4. Enjoy tracking your favorite caffeinated beverages!
 
+## App 
 
-## Demo link
+![](public\css\assets\page screenshot.png)
+![](public\css\assets\page screenshot2.png)
 
 
 ## License
