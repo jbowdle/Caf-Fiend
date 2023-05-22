@@ -3,7 +3,7 @@
 const reviewModal = document.querySelector("#reviewDrinkModal");
 const editModal= document.querySelector("#editReviewModal");
 const openReviewModal = document.querySelectorAll(".reviewDrinkBtn");
-const openEditModal = document.querySelector(".editReviewBtn");
+const openEditModal = document.querySelectorAll(".editReviewBtn");
 const closeReviewModal = document.querySelector(".closeAdd");
 const closeEditModal = document.querySelector(".closeEdit");
 
@@ -28,6 +28,27 @@ window.addEventListener("click", e => {
   }
 });
 
+if (openEditModal) {
+  openEditModal.forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      drink_id = e.target.dataset.drinkid;
+      rating_id = e.target.dataset.ratingid;
+      editModal.style.display = "block"
+    });
+  });
+}
+if (closeEditModal) {
+  closeEditModal.addEventListener("click", () => {
+    editModal.style.display = "none";
+  });
+
+  window.addEventListener("click", e => {
+    if (e.target == editModal) {
+      editModal.style.display = "none";
+    }
+  });
+}
+
 const addReviewHandler = async(event) => {
   event.preventDefault();
 
@@ -47,7 +68,7 @@ const addReviewHandler = async(event) => {
     const updateRating = await currentRating.json();
 
     if (response.ok && updateRating.ok) {
-      document.location.reload();
+      window.location.reload();
     }
   }
 };
@@ -55,25 +76,24 @@ const addReviewHandler = async(event) => {
 const reviewDrinkHandler = async(event) => {
   event.preventDefault();
 
-  const rating = document.querySelector("#rating-select").value;
-  const review = document.querySelector("#review").value.trim();
+  const ratingData = document.querySelector("#edit-rating-select").value;
+  const reviewData = document.querySelector("#edit-review").value.trim();
 
-  if (rating) {
+  if (ratingData) {
     const response = await fetch(`/api/ratings/${rating_id}`, {
       method: 'PUT',
       body: JSON.stringify({
-        rating: rating,
-        review: review
+        rating: ratingData,
+        review: reviewData
       }),
       headers: { 'Content-Type': 'application/json' },
     });
     const currentRating = await fetch(`/api/drinks/${drink_id}`, {
       method: 'PUT',
     });
-    const updateRating = await currentRating.json();
-
-    if (response.ok && updateRating.ok) {
-      document.location.reload();
+console.log(rating_id, drink_id, ratingData, reviewData);
+    if (response.ok && currentRating.ok) {
+      // window.location.reload();
     }
   }
 };
