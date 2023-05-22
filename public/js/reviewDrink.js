@@ -65,9 +65,8 @@ const addReviewHandler = async(event) => {
     const currentRating = await fetch(`/api/drinks/${drink_id}`, {
       method: 'PUT',
     });
-    const updateRating = await currentRating.json();
 
-    if (response.ok && updateRating.ok) {
+    if (response.ok && currentRating.ok) {
       document.location.reload();
     }
   }
